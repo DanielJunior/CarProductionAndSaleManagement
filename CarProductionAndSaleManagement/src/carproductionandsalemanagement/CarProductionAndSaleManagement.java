@@ -5,6 +5,9 @@
  */
 package carproductionandsalemanagement;
 
+import interfacegrafica.PluginLogin;
+import javax.swing.JFrame;
+
 /**
  *
  * @author danieljr
@@ -16,6 +19,11 @@ public class CarProductionAndSaleManagement {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        PluginLogin c = new PluginLogin();
+        c.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        c.setSize(280, 140);
+        c.setResizable(false);
+        c.setVisible(true);
     }
-    
+
 }
