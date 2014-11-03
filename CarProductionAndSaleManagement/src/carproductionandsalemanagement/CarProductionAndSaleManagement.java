@@ -5,6 +5,7 @@
  */
 package carproductionandsalemanagement;
 
+import interfacegrafica.MenuPrincipal;
 import interfacegrafica.PluginLogin;
 import javax.swing.JFrame;
 
@@ -18,12 +19,13 @@ public class CarProductionAndSaleManagement {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
-        PluginLogin c = new PluginLogin();
-        c.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        c.setSize(280, 140);
-        c.setResizable(false);
-        c.setVisible(true);
+        
+        MenuPrincipal mp = new MenuPrincipal();
+        mp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        mp.setSize(650, 200);
+        mp.setResizable(false);
+        mp.setVisible(true);
+
     }
 
 }
