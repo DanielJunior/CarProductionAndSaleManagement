@@ -144,6 +144,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         c.setSize(280, 140);
         c.setResizable(false);
         c.setVisible(true);
+        dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -152,6 +153,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         opcautomovel.setSize(400, 340);
         opcautomovel.setResizable(false);
         opcautomovel.setVisible(true);
+        dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
@@ -160,6 +162,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         c.setSize(280, 140);
         c.setResizable(false);
         c.setVisible(true);
+        dispose();
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -168,6 +171,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         opccliente.setSize(400, 340);
         opccliente.setResizable(false);
         opccliente.setVisible(true);
+        dispose();
 
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -177,6 +181,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         opcestoque.setSize(400, 340);
         opcestoque.setResizable(false);
         opcestoque.setVisible(true);
+        dispose();
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
@@ -185,6 +190,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         opcfornecedores.setSize(460, 340);
         opcfornecedores.setResizable(false);
         opcfornecedores.setVisible(true);
+        dispose();
     }//GEN-LAST:event_jButton6ActionPerformed
 
     /**

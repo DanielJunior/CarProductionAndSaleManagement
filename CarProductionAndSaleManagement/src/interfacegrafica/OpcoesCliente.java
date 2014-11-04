@@ -109,11 +109,9 @@ public class OpcoesCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        MenuPrincipal mp = new MenuPrincipal();
-        mp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        mp.setSize(650, 200);
-        mp.setResizable(false);
-        mp.setVisible(true);
+      new MenuPrincipal().show();  //nome seria a classe principal que vc quer voltar  
+        dispose();  //dispose fecha o atual 
+       
     }//GEN-LAST:event_jButton4ActionPerformed
 
     /**

@@ -49,6 +49,7 @@ public class PluginLogin extends JFrame {
                 }
                 if (usuario.getText().equals("Gerente") && senha.getText().equals("123")) {
                     JOptionPane.showMessageDialog(null, "Usuário autenticado!");
+                  
                 } else {
                     JOptionPane.showMessageDialog(null, "Usuário não autenticado!");
                 }

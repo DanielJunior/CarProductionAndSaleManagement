@@ -107,11 +107,8 @@ public class OpcoesAutomovel extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        MenuPrincipal mp = new MenuPrincipal();
-        mp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        mp.setSize(650, 200);
-        mp.setResizable(false);
-        mp.setVisible(true);
+        new MenuPrincipal().show();  //nome seria a classe principal que vc quer voltar  
+        dispose();  //dispose fecha o atual 
     }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
