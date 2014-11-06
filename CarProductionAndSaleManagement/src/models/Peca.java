@@ -86,4 +86,31 @@ public class Peca {
     public void setOpcionais(List<PecaOpcional> opcionais) {
         this.opcionais = opcionais;
     }
+
+    public Opcional buscarOpcional(String nome) {
+        for (PecaOpcional o : opcionais) {
+            if (o.getOpcional().getNome().compareToIgnoreCase(nome) == 0) {
+                return o.getOpcional();
+            }
+        }
+        return null;
+    }
+
+    public Fornecedor buscarFornecedor(String nome) {
+        for (PecaFornecida f : fornecedores) {
+            if (f.getFornecedor().getNome().compareToIgnoreCase(nome) == 0) {
+                return f.getFornecedor();
+            }
+        }
+        return null;
+    }
+
+    Modelo buscarModelo(String nome) {
+        for (PecaModelo m : modelos) {
+            if (m.getModelo().getNome().compareToIgnoreCase(nome) == 0) {
+                return m.getModelo();
+            }
+        }
+        return null;
+    }
 }

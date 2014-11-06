@@ -13,6 +13,7 @@ public class Funcionario {
 
     private long cpf, ctps;
     private String nome, senha;
+    private Cadastro cadastro;
 
     public Funcionario(long cpf, long ctps, String nome, String senha) {
         this.cpf = cpf;

@@ -81,24 +81,12 @@ public class Fabrica {
         this.clientes = clientes;
     }
 
-    public void addCliente(Cliente cliente) {
-        clientes.add(cliente);
-    }
-
-    public void cadastrarFuncionario(Funcionario funcionario) {
-        funcionarios.add(new Cadastro(funcionario, this));
-    }
-
     public List<Pedido> getPedidos() {
         return pedidos;
     }
 
     public void setPedidos(List<Pedido> pedidos) {
         this.pedidos = pedidos;
-    }
-
-    public void addPedido(Pedido pedido) {
-        pedidos.add(pedido);
     }
 
     public Estoque getEstoque() {
@@ -109,4 +97,77 @@ public class Fabrica {
         this.estoque = estoque;
     }
 
+    public boolean addCliente(Cliente cliente) {
+        return clientes.add(cliente);
+    }
+
+    public boolean addFuncionario(Funcionario f) {
+        return funcionarios.add(new Cadastro(f, this));
+    }
+
+    public boolean addPedido(Pedido pedido) {
+        return pedidos.add(pedido);
+    }
+
+    public Cliente buscarCliente(long identificacao) {
+        for (Cliente c : clientes) {
+            if (c.getIdentificacao() == identificacao) {
+                return c;
+            }
+        }
+        return null;
+    }
+
+    public Peca buscarPeca(long id) {
+        return estoque.buscaPeca(id);
+    }
+
+    public Opcional buscarOpcional(String n) {
+        return estoque.buscarOpcional(nome);
+    }
+
+    public Fornecedor buscarFornecedor(String nome) {
+        return estoque.buscarFornecedor(nome);
+    }
+
+    public Modelo buscarModelo(String nome) {
+        return estoque.buscarModelo(nome);
+    }
+
+    public boolean cadastrarCliente(Cliente c) {
+        if (buscarCliente(c.getIdentificacao()) == null) {
+            return clientes.add(c);
+        } else {
+            return false;
+        }
+    }
+
+    public boolean cadastrarPedido(Pedido p) {
+        return pedidos.add(p);
+    }
+
+    public boolean cadastrarModelo(Modelo m) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public boolean cadastrarFornecedor(Fornecedor f) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public boolean cadastrarOpcional(Opcional o) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public boolean alterarCliente(Cliente c) {
+        Cliente aux = buscarCliente(c.getIdentificacao());
+        boolean cond = clientes.remove(aux);
+        if (cond) {
+            return clientes.add(c);
+        }
+        return false;
+    }
+
+    public void verificarEstoque() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
