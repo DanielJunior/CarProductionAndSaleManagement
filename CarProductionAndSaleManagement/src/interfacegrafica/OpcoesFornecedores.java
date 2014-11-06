@@ -18,6 +18,10 @@ public class OpcoesFornecedores extends javax.swing.JFrame {
      */
     public OpcoesFornecedores() {
         initComponents();
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setSize(460, 340);
+        setResizable(false);
+        setVisible(true);
     }
 
     /**

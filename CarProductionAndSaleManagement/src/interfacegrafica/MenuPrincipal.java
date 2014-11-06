@@ -140,36 +140,24 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         PluginLogin c = new PluginLogin();
-        c.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        c.setSize(280, 140);
-        c.setResizable(false);
         c.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         OpcoesAutomovel opcautomovel = new OpcoesAutomovel();
-        opcautomovel.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        opcautomovel.setSize(400, 340);
-        opcautomovel.setResizable(false);
         opcautomovel.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         PluginLogin c = new PluginLogin();
-        c.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        c.setSize(280, 140);
-        c.setResizable(false);
         c.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         OpcoesCliente opccliente = new OpcoesCliente();
-        opccliente.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        opccliente.setSize(400, 340);
-        opccliente.setResizable(false);
         opccliente.setVisible(true);
         dispose();
 
@@ -177,19 +165,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         OpcoesEstoque opcestoque = new OpcoesEstoque();
-        opcestoque.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        opcestoque.setSize(400, 340);
-        opcestoque.setResizable(false);
         opcestoque.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         OpcoesFornecedores opcfornecedores = new OpcoesFornecedores();
-        opcfornecedores.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        opcfornecedores.setSize(460, 340);
-        opcfornecedores.setResizable(false);
-        opcfornecedores.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton6ActionPerformed
 

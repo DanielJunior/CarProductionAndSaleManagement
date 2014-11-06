@@ -29,6 +29,9 @@ public class PluginLogin extends JFrame {
     public PluginLogin() {
         super("Login no sistema");
         setLayout(new FlowLayout());
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setSize(280, 140);
+        setResizable(false);
 
         user = new JLabel("Usuário: ");
         add(user);
