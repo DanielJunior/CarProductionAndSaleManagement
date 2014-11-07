@@ -70,21 +70,4 @@ public class Estoque {
         }
         return null;
     }
-
-    public Fornecedor buscarFornecedor(String nome) {
-        for (Peca p : pecas) {
-            Fornecedor f = p.buscarFornecedor(nome);
-            if (f != null) {
-                return f;
-            }
-        }
-        return null;
-    }
-
-    public Modelo buscarModelo(String nome) {
-        for(Peca p : pecas){
-            Modelo m = p.buscarModelo(nome);
-        }
-        return null;
-    }
 }
