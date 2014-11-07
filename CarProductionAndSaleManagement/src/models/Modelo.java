@@ -69,4 +69,19 @@ public class Modelo {
         this.opcionais = opcionais;
     }
 
+    public Opcional buscarOpcional(String nome) {
+        for (Opcional o : opcionais) {
+            if (o.getNome().compareToIgnoreCase(nome) == 0) {
+                return o;
+            }
+        }
+        return null;
+    }
+
+    public boolean cadastrarOpcional(Opcional o) {
+        if (buscarOpcional(o.getNome()) == null) {
+            return opcionais.add(o);
+        }
+        return false;
+    }
 }

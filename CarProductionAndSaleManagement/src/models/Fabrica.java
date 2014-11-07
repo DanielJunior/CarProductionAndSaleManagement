@@ -172,13 +172,8 @@ public class Fabrica {
         return false;
     }
 
-    public boolean cadastrarOpcional(Opcional o) {
-        if(buscarOpcional(o.getNome()) == null){
-            List<Opcional> lista = m.getOpcionais();
-            lista.add(o);
-            m.setOpcionais(lista);
-        }
-        return false;
+    public boolean cadastrarOpcional(Opcional o, Modelo m) {
+        return m.cadastrarOpcional(o);
     }
 
     public boolean alterarCliente(Cliente c) {
