@@ -6,8 +6,10 @@
 package interfacegrafica;
 
 import comando.Comando;
+import comando.ComandoBuscaCliente;
 import comando.ComandoCadastraCliente;
 import javax.swing.JFrame;
+import javax.swing.text.PlainDocument;
 
 /**
  *
@@ -115,7 +117,8 @@ public class OpcoesCliente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
+        PluginLogin p = new PluginLogin(new ComandoBuscaCliente());
+        p.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
