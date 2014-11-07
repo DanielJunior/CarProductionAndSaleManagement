@@ -19,6 +19,8 @@ public class Fabrica {
     private List<Cliente> clientes;
     private List<Pedido> pedidos;
     private List<Cadastro> funcionarios;
+    private List<Modelo> modelos;
+    private List<Fornecedor> fornecedores;
     private Estoque estoque;
 
     public Fabrica(String nome, String endereco, String email, long cnpj, long telefone) {
@@ -127,11 +129,21 @@ public class Fabrica {
     }
 
     public Fornecedor buscarFornecedor(String nome) {
-        return estoque.buscarFornecedor(nome);
+        for(Fornecedor f : fornecedores){
+            if(f.getNome().compareTo(nome) == 0){
+                return f;
+            }
+        }
+        return null;
     }
 
     public Modelo buscarModelo(String nome) {
-        return estoque.buscarModelo(nome);
+        for(Modelo m : modelos){
+            if(m.getNome().compareTo(nome) == 0){
+                return m;
+            }
+        }
+        return null;
     }
 
     public boolean cadastrarCliente(Cliente c) {
@@ -147,15 +159,26 @@ public class Fabrica {
     }
 
     public boolean cadastrarModelo(Modelo m) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if (buscarModelo(m.getNome()) == null) {
+            modelos.add(m);
+        }
+        return false;
     }
 
     public boolean cadastrarFornecedor(Fornecedor f) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if(buscarFornecedor(f.getNome()) == null){
+            fornecedores.add(f);
+        }
+        return false;
     }
 
     public boolean cadastrarOpcional(Opcional o) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if(buscarOpcional(o.getNome()) == null){
+            List<Opcional> lista = m.getOpcionais();
+            lista.add(o);
+            m.setOpcionais(lista);
+        }
+        return false;
     }
 
     public boolean alterarCliente(Cliente c) {
