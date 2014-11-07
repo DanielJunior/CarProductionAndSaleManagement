@@ -5,6 +5,7 @@
  */
 package interfacegrafica;
 
+import comando.ComandoBuscaPeca;
 import javax.swing.JFrame;
 
 /**
@@ -44,6 +45,11 @@ public class OpcoesEstoque extends javax.swing.JFrame {
         jButton1.setText("Verificar Estoque");
 
         jButton2.setText("Buscar Peças");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Comprar Peças");
 
@@ -105,6 +111,11 @@ public class OpcoesEstoque extends javax.swing.JFrame {
         new MenuPrincipal().show();  //nome seria a classe principal que vc quer voltar  
         dispose();  //dispose fecha o atual 
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        PluginLogin p = new PluginLogin(new ComandoBuscaPeca());
+        p.setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
