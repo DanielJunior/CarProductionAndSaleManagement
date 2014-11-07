@@ -23,7 +23,7 @@ public interface Fachada {
     public boolean cadastrarPedido(Pedido p);
     public boolean cadastrarModelo(Modelo m);
     public boolean cadastrarFornecedor(Fornecedor f);
-    public boolean cadastrarOpcional(Opcional o);
+    public boolean cadastrarOpcional(Opcional o, Modelo m);
     
     public Cliente buscarCliente(long identificacao);
     public Opcional buscarOpcional(String nome);
