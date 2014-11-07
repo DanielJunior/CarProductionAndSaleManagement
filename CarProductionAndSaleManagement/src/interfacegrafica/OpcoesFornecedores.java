@@ -5,6 +5,7 @@
  */
 package interfacegrafica;
 
+import comando.ComandoCadastraFornecedor;
 import javax.swing.JFrame;
 
 /**
@@ -44,6 +45,11 @@ public class OpcoesFornecedores extends javax.swing.JFrame {
         jButton1.setText("Buscar Fornecedores");
 
         jButton2.setText("Cadastrar Fornecedores");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Voltar");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -98,6 +104,12 @@ public class OpcoesFornecedores extends javax.swing.JFrame {
         new MenuPrincipal().show();  //nome seria a classe principal que vc quer voltar  
         dispose();  //dispose fecha o atual 
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        PluginLogin p = new PluginLogin(new ComandoCadastraFornecedor());
+        p.setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments

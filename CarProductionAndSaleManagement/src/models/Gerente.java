@@ -15,4 +15,11 @@ public class Gerente extends Funcionario {
         super(cpf, ctps, nome, senha);
     }
 
+    public boolean temPermissao(String nome, String senha) {
+        if ((getNome().compareToIgnoreCase(nome) == 0) && (getSenha().compareToIgnoreCase(senha) == 0)) {
+            return true;
+        }
+        return false;
+    }
+
 }

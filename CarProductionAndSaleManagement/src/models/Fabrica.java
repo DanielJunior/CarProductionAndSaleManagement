@@ -33,6 +33,8 @@ public class Fabrica {
         pedidos = new ArrayList<>();
         funcionarios = new ArrayList<>();
         estoque = Estoque.getInstance();
+        Gerente admin = new Gerente(123, 123, "ADMIN", "ADMIN");
+        funcionarios.add(new Cadastro(admin, this));
     }
 
     public String getNome() {
@@ -129,8 +131,8 @@ public class Fabrica {
     }
 
     public Fornecedor buscarFornecedor(String nome) {
-        for(Fornecedor f : fornecedores){
-            if(f.getNome().compareTo(nome) == 0){
+        for (Fornecedor f : fornecedores) {
+            if (f.getNome().compareTo(nome) == 0) {
                 return f;
             }
         }
@@ -138,8 +140,8 @@ public class Fabrica {
     }
 
     public Modelo buscarModelo(String nome) {
-        for(Modelo m : modelos){
-            if(m.getNome().compareTo(nome) == 0){
+        for (Modelo m : modelos) {
+            if (m.getNome().compareTo(nome) == 0) {
                 return m;
             }
         }
@@ -166,7 +168,7 @@ public class Fabrica {
     }
 
     public boolean cadastrarFornecedor(Fornecedor f) {
-        if(buscarFornecedor(f.getNome()) == null){
+        if (buscarFornecedor(f.getNome()) == null) {
             fornecedores.add(f);
         }
         return false;
@@ -187,5 +189,19 @@ public class Fabrica {
 
     public void verificarEstoque() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public boolean autenticar(String nome, String senha) {
+        for (Cadastro c : funcionarios) {
+            try {
+                Gerente g = (Gerente) c.getFuncionario();
+                if (g.temPermissao(nome, senha)) {
+                    return true;
+                }
+            } catch (Exception e) {
+
+            }
+        }
+        return false;
     }
 }

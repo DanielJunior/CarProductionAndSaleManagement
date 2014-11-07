@@ -5,24 +5,23 @@
  */
 package comando;
 
-import interfacegrafica.CadastraCliente;
+import interfacegrafica.CadastraFornecedor;
 
 /**
  *
  * @author danieljr
  */
-public class ComandoCadastraCliente implements Comando {
+public class ComandoCadastraFornecedor implements Comando {
 
-    CadastraCliente c;
+    private CadastraFornecedor f;
 
-    public ComandoCadastraCliente() {
-        c = new CadastraCliente();
-
+    public ComandoCadastraFornecedor() {
+        f = new CadastraFornecedor();
     }
 
     @Override
     public void executar() {
-        c.setVisible(true);
+        f.setVisible(true);
     }
 
 }

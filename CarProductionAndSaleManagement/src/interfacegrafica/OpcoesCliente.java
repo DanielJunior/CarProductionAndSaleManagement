@@ -5,6 +5,8 @@
  */
 package interfacegrafica;
 
+import comando.Comando;
+import comando.ComandoCadastraCliente;
 import javax.swing.JFrame;
 
 /**
@@ -124,6 +126,8 @@ public class OpcoesCliente extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        PluginLogin p = new PluginLogin(new ComandoCadastraCliente());
+        p.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**

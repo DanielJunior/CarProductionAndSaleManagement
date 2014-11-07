@@ -139,8 +139,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        PluginLogin c = new PluginLogin();
-        c.setVisible(true);
+//        PluginLogin c = new PluginLogin();
+//        c.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -151,8 +151,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        PluginLogin c = new PluginLogin();
-        c.setVisible(true);
+//        PluginLogin c = new PluginLogin();
+//        c.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton5ActionPerformed
 

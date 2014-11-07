@@ -33,5 +33,7 @@ public interface Fachada {
     public List<Pedido> gerarRelatorio();
     public boolean alterarCliente(Cliente c);
     public void verificarEstoque();
+
+    public boolean autenticar(String text, char[] password);
     
 }

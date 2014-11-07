@@ -5,6 +5,9 @@
  */
 package interfacegrafica;
 
+import comando.Comando;
+import facade.Fachada;
+import facade.Sistema;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -25,17 +28,18 @@ public class PluginLogin extends JFrame {
     private JPasswordField senha;
     private JButton login, limpa;
     private JLabel user, pass;
+    private Comando comando;
+    private Fachada s;
 
-    public PluginLogin() {
+    public PluginLogin(Comando comando) {
         super("Login no sistema");
         setLayout(new FlowLayout());
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(280, 140);
         setResizable(false);
-
+        s = Sistema.getInstance();
         user = new JLabel("Usuário: ");
         add(user);
-
         usuario = new JTextField(15);
         add(usuario);
 
@@ -47,12 +51,13 @@ public class PluginLogin extends JFrame {
 
         login = new JButton("Entrar");
         login.addActionListener(new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent evento) {
                 if (evento.getSource() == login) {
                 }
-                if (usuario.getText().equals("Gerente") && senha.getText().equals("123")) {
-                    JOptionPane.showMessageDialog(null, "Usuário autenticado!");
-                  
+                if (autenticar()) {
+                    comando.executar();
+
                 } else {
                     JOptionPane.showMessageDialog(null, "Usuário não autenticado!");
                 }
@@ -75,4 +80,7 @@ public class PluginLogin extends JFrame {
         add(limpa);
     }
 
+    private boolean autenticar() {
+        return s.autenticar(usuario.getText(), senha.getPassword());
+    }
 }
