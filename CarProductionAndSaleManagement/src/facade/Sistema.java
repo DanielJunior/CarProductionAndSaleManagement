@@ -55,8 +55,8 @@ public class Sistema implements Fachada {
     }
 
     @Override
-    public boolean cadastrarOpcional(Opcional o) {
-        return fabrica.cadastrarOpcional(o);
+    public boolean cadastrarOpcional(Opcional o, Modelo m) {
+        return fabrica.cadastrarOpcional(o, m);
     }
 
     @Override
