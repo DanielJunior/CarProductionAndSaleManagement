@@ -5,6 +5,7 @@
  */
 package interfacegrafica;
 
+import comando.ComandoBuscaFornecedor;
 import comando.ComandoCadastraFornecedor;
 import javax.swing.JFrame;
 
@@ -12,12 +13,12 @@ import javax.swing.JFrame;
  *
  * @author lorena
  */
-public class OpcoesFornecedores extends javax.swing.JFrame {
+public class OpcoesFornecedor extends javax.swing.JFrame {
 
     /**
      * Creates new form OpcoesFornecedores
      */
-    public OpcoesFornecedores() {
+    public OpcoesFornecedor() {
         initComponents();
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(460, 340);
@@ -43,6 +44,11 @@ public class OpcoesFornecedores extends javax.swing.JFrame {
         setTitle("Menu Fornecedores");
 
         jButton1.setText("Buscar Fornecedores");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Cadastrar Fornecedores");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -111,6 +117,12 @@ public class OpcoesFornecedores extends javax.swing.JFrame {
         p.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        PluginLogin p = new PluginLogin(new ComandoBuscaFornecedor());
+        p.setVisible(true);
+
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -128,20 +140,21 @@ public class OpcoesFornecedores extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(OpcoesFornecedores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(OpcoesFornecedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(OpcoesFornecedores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(OpcoesFornecedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(OpcoesFornecedores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(OpcoesFornecedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(OpcoesFornecedores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(OpcoesFornecedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new OpcoesFornecedores().setVisible(true);
+                new OpcoesFornecedor().setVisible(true);
             }
         });
     }

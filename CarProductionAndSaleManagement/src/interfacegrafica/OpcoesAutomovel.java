@@ -5,6 +5,8 @@
  */
 package interfacegrafica;
 
+
+import comando.ComandoBuscaModelo;
 import javax.swing.JFrame;
 
 /**
@@ -45,6 +47,11 @@ public class OpcoesAutomovel extends javax.swing.JFrame {
         jButton1.setText("Cadastrar Automóvel");
 
         jButton2.setText("Buscar Modelo");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Buscar Opcionais");
 
@@ -113,6 +120,11 @@ public class OpcoesAutomovel extends javax.swing.JFrame {
         new MenuPrincipal().show();  //nome seria a classe principal que vc quer voltar  
         dispose();  //dispose fecha o atual 
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        PluginLogin p = new PluginLogin(new ComandoBuscaModelo());
+        p.setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
