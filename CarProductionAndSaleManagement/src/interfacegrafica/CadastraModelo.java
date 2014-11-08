@@ -5,6 +5,11 @@
  */
 package interfacegrafica;
 
+import facade.Fachada;
+import facade.Sistema;
+import java.awt.HeadlessException;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author lorena
@@ -42,21 +47,18 @@ public class CadastraModelo extends javax.swing.JFrame {
 
         jLabel1.setText("Nome:");
 
-        jTextField1.setText("jTextField1");
-
         jLabel2.setText("Descrição:");
-
-        jTextField2.setText("jTextField2");
 
         jLabel3.setText("Ano:");
 
-        jTextField3.setText("jTextField3");
-
         jLabel4.setText("Valor:");
 
-        jTextField4.setText("jTextField4");
-
         jButton1.setText("Salvar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -129,6 +131,26 @@ public class CadastraModelo extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
+        try {
+            String nome = jTextField1.getText();
+            String descricao = jTextField2.getText();
+            int ano = Integer.parseInt(jTextField3.getText());
+            double valor = Double.parseDouble(jTextField4.getText());
+            Fachada f = Sistema.getInstance();
+            if (f.cadastrarModelo(nome, descricao, ano, valor)) {
+                JOptionPane.showMessageDialog(null, "Cadastro efetuado com sucesso!");
+                dispose();
+            } else {
+                JOptionPane.showMessageDialog(null, "Cadastro não realizado!");
+            }
+        } catch (NumberFormatException | HeadlessException e) {
+            JOptionPane.showMessageDialog(null, "O campo telefone precisa ser número!");
+
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

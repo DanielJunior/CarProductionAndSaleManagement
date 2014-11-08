@@ -17,7 +17,9 @@ public abstract class Cliente {
     private String nome, endereco, email;
     private long telefone, identificacao;
     private List<Pedido> pedidos;
-
+    public static final byte JURIDICO = 0;
+    public static final byte FISICO = 1;
+    
     public Cliente(String nome, String endereco, String email, long telefone) {
         this.nome = nome;
         this.endereco = endereco;

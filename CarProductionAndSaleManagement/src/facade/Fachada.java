@@ -19,11 +19,11 @@ import models.Pedido;
  */
 public interface Fachada {
  
-    public boolean cadastrarCliente(Cliente c);
+    public boolean cadastrarCliente(String nome,long identificacao, String endereco, String email, long telefone, byte tipo);
     public boolean cadastrarPedido(Pedido p);
-    public boolean cadastrarModelo(Modelo m);
-    public boolean cadastrarFornecedor(Fornecedor f);
-    public boolean cadastrarOpcional(Opcional o, Modelo m);
+    public boolean cadastrarModelo(String nome, String descricao, int ano, double valor);
+    public boolean cadastrarFornecedor(String nome, String email, long telefone);
+    public boolean cadastrarOpcional(String nome, String descricao, double valor, String nomeModelo);
     
     public Cliente buscarCliente(long identificacao);
     public Opcional buscarOpcional(String nome);
@@ -35,5 +35,4 @@ public interface Fachada {
     public void verificarEstoque();
 
     public boolean autenticar(String text, char[] password);
-    
 }

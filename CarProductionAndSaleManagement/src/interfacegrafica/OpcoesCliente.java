@@ -5,11 +5,10 @@
  */
 package interfacegrafica;
 
-import comando.Comando;
+import comando.ComandoAlteraCliente;
 import comando.ComandoBuscaCliente;
 import comando.ComandoCadastraCliente;
 import javax.swing.JFrame;
-import javax.swing.text.PlainDocument;
 
 /**
  *
@@ -60,6 +59,11 @@ public class OpcoesCliente extends javax.swing.JFrame {
         });
 
         jButton3.setText("Alterar Cliente");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("Voltar");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -120,7 +124,6 @@ public class OpcoesCliente extends javax.swing.JFrame {
         PluginLogin p = new PluginLogin(new ComandoBuscaCliente());
         p.setVisible(true);
         
-        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -134,6 +137,11 @@ public class OpcoesCliente extends javax.swing.JFrame {
         PluginLogin p = new PluginLogin(new ComandoCadastraCliente());
         p.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        PluginLogin p = new PluginLogin(new ComandoAlteraCliente());
+        p.setVisible(true);
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments

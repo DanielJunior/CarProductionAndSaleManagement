@@ -34,7 +34,7 @@ public class PluginLogin extends JFrame {
     public PluginLogin(Comando comando) {
         super("Login no sistema");
         setLayout(new FlowLayout());
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setSize(280, 140);
         setResizable(false);
         s = Sistema.getInstance();
@@ -57,6 +57,7 @@ public class PluginLogin extends JFrame {
                 }
                 if (autenticar()) {
                     comando.executar();
+                    dispose();
 
                 } else {
                     JOptionPane.showMessageDialog(null, "Usuário não autenticado!");

@@ -32,9 +32,11 @@ public class Fabrica {
         clientes = new ArrayList<>();
         pedidos = new ArrayList<>();
         funcionarios = new ArrayList<>();
+        fornecedores = new ArrayList<>();
+        modelos = new ArrayList<>();
         estoque = Estoque.getInstance();
-        Gerente admin = new Gerente(123, 123, "ADMIN", "ADMIN");
-        funcionarios.add(new Cadastro(admin, this));
+        inicializarAtributos();
+
     }
 
     public String getNome() {
@@ -132,7 +134,7 @@ public class Fabrica {
 
     public Fornecedor buscarFornecedor(String nome) {
         for (Fornecedor f : fornecedores) {
-            if (f.getNome().compareTo(nome) == 0) {
+            if (f.getNome().compareToIgnoreCase(nome) == 0) {
                 return f;
             }
         }
@@ -141,7 +143,7 @@ public class Fabrica {
 
     public Modelo buscarModelo(String nome) {
         for (Modelo m : modelos) {
-            if (m.getNome().compareTo(nome) == 0) {
+            if (m.getNome().compareToIgnoreCase(nome) == 0) {
                 return m;
             }
         }
@@ -162,20 +164,25 @@ public class Fabrica {
 
     public boolean cadastrarModelo(Modelo m) {
         if (buscarModelo(m.getNome()) == null) {
-            modelos.add(m);
+            return modelos.add(m);
         }
         return false;
     }
 
     public boolean cadastrarFornecedor(Fornecedor f) {
         if (buscarFornecedor(f.getNome()) == null) {
-            fornecedores.add(f);
+            return fornecedores.add(f);
         }
         return false;
     }
 
-    public boolean cadastrarOpcional(Opcional o, Modelo m) {
-        return m.cadastrarOpcional(o);
+    public boolean cadastrarOpcional(Opcional o, String nomeModelo) {
+        Modelo m = buscarModelo(nome);
+        if (m != null) {
+            return m.cadastrarOpcional(o);
+        } else {
+            return false;
+        }
     }
 
     public boolean alterarCliente(Cliente c) {
@@ -203,5 +210,35 @@ public class Fabrica {
             }
         }
         return false;
+    }
+
+    public List<Cadastro> getFuncionarios() {
+        return funcionarios;
+    }
+
+    public void setFuncionarios(List<Cadastro> funcionarios) {
+        this.funcionarios = funcionarios;
+    }
+
+    public List<Modelo> getModelos() {
+        return modelos;
+    }
+
+    public void setModelos(List<Modelo> modelos) {
+        this.modelos = modelos;
+    }
+
+    public List<Fornecedor> getFornecedores() {
+        return fornecedores;
+    }
+
+    public void setFornecedores(List<Fornecedor> fornecedores) {
+        this.fornecedores = fornecedores;
+    }
+
+    private void inicializarAtributos() {
+        Gerente admin = new Gerente(123, 123, "ADMIN", "ADMIN");
+        funcionarios.add(new Cadastro(admin, this));
+        clientes.add(new ClienteFisico(123, "Joãozinho", "Rua dos Bobos", "example@example.com", 123456789));
     }
 }

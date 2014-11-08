@@ -5,7 +5,6 @@
  */
 package models;
 
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -15,12 +14,12 @@ import java.util.List;
 public class Modelo {
 
     private String nome, descricao;
-    private Date ano;
+    private int ano;
     private double valor;
     private List<Opcional> opcionais;
     private List<PecaModelo> pecas;
 
-    public Modelo(String nome, String descricao, Date ano, double valor, List<Opcional> opcionais, List<PecaModelo> pecas) {
+    public Modelo(String nome, String descricao, int ano, double valor, List<Opcional> opcionais, List<PecaModelo> pecas) {
         this.nome = nome;
         this.descricao = descricao;
         this.ano = ano;
@@ -43,14 +42,6 @@ public class Modelo {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
-    }
-
-    public Date getAno() {
-        return ano;
-    }
-
-    public void setAno(Date ano) {
-        this.ano = ano;
     }
 
     public double getValor() {
@@ -83,5 +74,21 @@ public class Modelo {
             return opcionais.add(o);
         }
         return false;
+    }
+
+    public int getAno() {
+        return ano;
+    }
+
+    public void setAno(int ano) {
+        this.ano = ano;
+    }
+
+    public List<PecaModelo> getPecas() {
+        return pecas;
+    }
+
+    public void setPecas(List<PecaModelo> pecas) {
+        this.pecas = pecas;
     }
 }

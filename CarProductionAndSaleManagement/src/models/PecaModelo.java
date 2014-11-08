@@ -9,7 +9,7 @@ package models;
  *
  * @author danieljr
  */
-class PecaModelo {
+public class PecaModelo {
 
     private Modelo modelo;
     private Peca peca;
