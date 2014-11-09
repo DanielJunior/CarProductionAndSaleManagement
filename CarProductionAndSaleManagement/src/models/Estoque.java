@@ -13,61 +13,61 @@ import java.util.List;
  * @author danieljr
  */
 public class Estoque {
-
+    
     private int quantidade;
     private static Estoque instance = null;
-    private List<Peca> pecas;
+    private List<PecaEstoque> pecas;
 
     private Estoque() {
         pecas = new ArrayList<>();
     }
-
+    
     public static Estoque getInstance() {
         if (instance == null) {
-            return new Estoque();
+            instance = new Estoque();
+            return instance;
         }
         return instance;
     }
-
+    
     public int getQuantidade() {
         return quantidade;
     }
-
+    
     public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;
     }
 
-    public boolean addPeca(Peca p) {
-        if (buscaPeca(p.getId()) == null) {
-            return pecas.add(p);
-        }
-        return false;
-    }
-
-    public Peca buscaPeca(long id) {
-        for (Peca a : pecas) {
-            if (a.getId() == id) {
+    public PecaEstoque buscaPeca(long id) {
+        for (PecaEstoque a : pecas) {
+            if (a.getPeca().getId() == id) {
                 return a;
             }
         }
         return null;
     }
-
-    public List<Peca> getPecas() {
+    
+    public void adicionarPecaEstoque(PecaEstoque peca) {
+        PecaEstoque p = buscaPeca(peca.getPeca().getId());
+        if (p != null) {
+            p.setQuantidade(p.getQuantidade() + peca.getQuantidade());
+        } else {
+            pecas.add(peca);
+        }
+    }
+    
+    public void adicionarPecasCompradas(List<PecaFornecida> lista){
+        for(PecaFornecida p : lista){
+            adicionarPecaEstoque(new PecaEstoque(p.getPeca(), 1));
+        }
+        System.out.println(pecas.toString());
+    }
+    
+    public List<PecaEstoque> getPecas() {
         return pecas;
     }
 
-    public void setPecas(List<Peca> pecas) {
+    public void setPecas(List<PecaEstoque> pecas) {
         this.pecas = pecas;
-    }
-
-    public Opcional buscarOpcional(String nome) {
-        for (Peca p : pecas) {
-            Opcional o = p.buscarOpcional(nome);
-            if (o != null) {
-                return o;
-            }
-        }
-        return null;
     }
 }

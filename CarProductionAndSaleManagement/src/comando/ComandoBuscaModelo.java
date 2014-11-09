@@ -6,6 +6,7 @@
 package comando;
 
 import interfacegrafica.BuscaModelo;
+import interfacegrafica.Receiver;
 
 /**
  *
@@ -15,8 +16,8 @@ public class ComandoBuscaModelo implements Comando{
     
     private BuscaModelo bm;
     
-    public ComandoBuscaModelo () {
-        bm = new BuscaModelo();
+    public ComandoBuscaModelo (Receiver r) {
+        bm = new BuscaModelo(r);
     }
 
     @Override

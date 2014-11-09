@@ -15,6 +15,8 @@ import models.Fornecedor;
 import models.Modelo;
 import models.Opcional;
 import models.Peca;
+import models.PecaEstoque;
+import models.PecaFornecida;
 import models.Pedido;
 
 /**
@@ -50,7 +52,8 @@ public class Sistema implements Fachada {
 
     @Override
     public Opcional buscarOpcional(String nome) {
-        return fabrica.buscarOpcional(nome);
+//        return fabrica.buscarOpcional(nome);
+        return null;
     }
 
     @Override
@@ -60,7 +63,8 @@ public class Sistema implements Fachada {
 
     @Override
     public Peca buscarPeca(long id) {
-        return fabrica.buscarPeca(id);
+//        return fabrica.buscarPeca(id);
+        return null;
     }
 
     @Override
@@ -111,6 +115,26 @@ public class Sistema implements Fachada {
     @Override
     public boolean alterarCliente(Cliente c) {
         return fabrica.alterarCliente(c);
+    }
+
+    @Override
+    public List<PecaFornecida> listarPecasFornecidas() {
+        return fabrica.listarPecasFornecedores();
+    }
+
+    @Override
+    public void adicionarPecasCompradas(List<PecaFornecida> lista) {
+        fabrica.getEstoque().adicionarPecasCompradas(lista);
+    }
+
+    @Override
+    public PecaEstoque buscarPecaEstoque(long id) {
+        return fabrica.getEstoque().buscaPeca(id);
+    }
+
+    @Override
+    public List<PecaEstoque> listarPecasEstoque() {
+        return fabrica.getEstoque().getPecas();
     }
 
 }

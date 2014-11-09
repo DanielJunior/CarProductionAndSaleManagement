@@ -6,13 +6,23 @@
 package interfacegrafica;
 
 import comando.ComandoBuscaPeca;
+import comando.ComandoCompraPeca;
+import comando.ComandoMostrarEstoque;
+import facade.Fachada;
+import facade.Sistema;
+import java.util.List;
 import javax.swing.JFrame;
+import models.Cliente;
+import models.Fornecedor;
+import models.Modelo;
+import models.PecaEstoque;
+import models.PecaFornecida;
 
 /**
  *
  * @author lorena
  */
-public class OpcoesEstoque extends javax.swing.JFrame {
+public class OpcoesEstoque extends javax.swing.JFrame implements Receiver{
 
     /**
      * Creates new form OpcoesEstoque
@@ -43,6 +53,11 @@ public class OpcoesEstoque extends javax.swing.JFrame {
         setTitle("Menu Estoque");
 
         jButton1.setText("Verificar Estoque");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Buscar Peças");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -52,6 +67,11 @@ public class OpcoesEstoque extends javax.swing.JFrame {
         });
 
         jButton3.setText("Comprar Peças");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("Voltar");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -113,9 +133,21 @@ public class OpcoesEstoque extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        PluginLogin p = new PluginLogin(new ComandoBuscaPeca());
+        PluginLogin p = new PluginLogin(new ComandoBuscaPeca(this));
         p.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        PluginLogin p = new PluginLogin(new ComandoCompraPeca(this));
+        p.setVisible(true);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        PluginLogin p = new PluginLogin(new ComandoMostrarEstoque());
+        p.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -159,4 +191,32 @@ public class OpcoesEstoque extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void receberCliente(Cliente c) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void receberFornecedor(Fornecedor f) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void receberModelo(Modelo m) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void receberPecasCompradas(List<PecaFornecida> lista) {
+        System.out.println(lista.toString());
+        Fachada f = Sistema.getInstance();
+        f.adicionarPecasCompradas(lista);
+    }
+
+    @Override
+    public void receberPecaEstoque(PecaEstoque p) {
+        MostraPeca m = new MostraPeca(p);
+        m.setVisible(true);
+    }
 }

@@ -6,6 +6,7 @@
 package comando;
 
 import interfacegrafica.BuscaFornecedor;
+import interfacegrafica.Receiver;
 
 /**
  *
@@ -17,6 +18,10 @@ public class ComandoBuscaFornecedor implements Comando {
 
     public ComandoBuscaFornecedor() {
         bf = new BuscaFornecedor();
+    }
+    
+    public ComandoBuscaFornecedor(Receiver r) {
+        bf = new BuscaFornecedor(r);
     }
 
     @Override

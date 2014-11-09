@@ -8,17 +8,25 @@ package interfacegrafica;
 import comando.ComandoAlteraCliente;
 import comando.ComandoBuscaCliente;
 import comando.ComandoCadastraCliente;
+import java.util.List;
 import javax.swing.JFrame;
+import models.Cliente;
+import models.Fornecedor;
+import models.Modelo;
+import models.PecaEstoque;
+import models.PecaFornecida;
+import models.PecaPedida;
 
 /**
  *
  * @author lorena
  */
-public class OpcoesCliente extends javax.swing.JFrame {
+public class OpcoesCliente extends javax.swing.JFrame implements Receiver {
 
     /**
      * Creates new form OpcoesCliente
      */
+    private Cliente c;
     public OpcoesCliente() {
         initComponents();
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -121,7 +129,7 @@ public class OpcoesCliente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        PluginLogin p = new PluginLogin(new ComandoBuscaCliente());
+        PluginLogin p = new PluginLogin(new ComandoBuscaCliente(this));
         p.setVisible(true);
         
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -185,4 +193,31 @@ public class OpcoesCliente extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void receberCliente(Cliente c) {
+        this.c = c;
+        MostraCliente m = new MostraCliente(c);
+        m.setVisible(true);
+    }
+
+    @Override
+    public void receberFornecedor(Fornecedor f) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void receberModelo(Modelo m) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void receberPecasCompradas(List<PecaFornecida> lista) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void receberPecaEstoque(PecaEstoque p) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

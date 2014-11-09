@@ -17,7 +17,15 @@ public class BuscaModelo extends javax.swing.JFrame {
     /**
      * Creates new form BuscaModelo
      */
+    private Receiver r;
+
     public BuscaModelo() {
+        initComponents();
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+    }
+
+    public BuscaModelo(Receiver r) {
+        this.r = r;
         initComponents();
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }
@@ -93,8 +101,10 @@ public class BuscaModelo extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String nome = jTextField1.getText();
         Fachada f = Sistema.getInstance();
-        MostraModelo m = new MostraModelo(f.buscarModelo(nome));
-        m.setVisible(true);
+//        MostraModelo m = new MostraModelo(f.buscarModelo(nome));
+//        m.setVisible(true);
+        r.receberModelo(f.buscarModelo(nome));
+        dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

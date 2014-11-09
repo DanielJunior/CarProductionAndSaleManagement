@@ -11,7 +11,7 @@ import java.util.Date;
  *
  * @author danieljr
  */
-class PecaFornecida {
+public class PecaFornecida {
 
     private double valor;
     private Date prazoEntrega;
@@ -57,4 +57,8 @@ class PecaFornecida {
         this.peca = peca;
     }
 
+    @Override
+    public String toString() {
+        return "PEÇA: "+peca.getNome()+" - COD: "+peca.getId()+" - FORNECEDOR: "+fornecedor.getNome()+" - VALOR: R$"+valor+" - PRAZO: "+prazoEntrega.toLocaleString();
+    }
 }

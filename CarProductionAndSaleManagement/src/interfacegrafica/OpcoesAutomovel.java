@@ -5,18 +5,24 @@
  */
 package interfacegrafica;
 
-import comando.Comando;
 import comando.ComandoBuscaModelo;
 import comando.ComandoBuscaOpcional;
 import comando.ComandoCadastraModelo;
 import comando.ComandoCadastraOpcional;
+import java.util.List;
 import javax.swing.JFrame;
+import models.Cliente;
+import models.Fornecedor;
+import models.Modelo;
+import models.PecaEstoque;
+import models.PecaFornecida;
+import models.PecaPedida;
 
 /**
  *
  * @author lorena
  */
-public class OpcoesAutomovel extends javax.swing.JFrame {
+public class OpcoesAutomovel extends javax.swing.JFrame implements Receiver {
 
     /**
      * Creates new form OpcoesAutomovel
@@ -153,7 +159,7 @@ public class OpcoesAutomovel extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        PluginLogin p = new PluginLogin(new ComandoBuscaModelo());
+        PluginLogin p = new PluginLogin(new ComandoBuscaModelo(this));
         p.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -220,4 +226,30 @@ public class OpcoesAutomovel extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JToggleButton jToggleButton1;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void receberCliente(Cliente c) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void receberFornecedor(Fornecedor f) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void receberModelo(Modelo m) {
+        MostraModelo mm = new MostraModelo(m);
+        mm.setVisible(true);
+    }
+
+    @Override
+    public void receberPecasCompradas(List<PecaFornecida> lista) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void receberPecaEstoque(PecaEstoque p) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

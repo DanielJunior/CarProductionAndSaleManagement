@@ -5,6 +5,7 @@
  */
 package models;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -15,18 +16,26 @@ public class Fornecedor {
 
     private String nome, email;
     private long telefone;
-    private List<Peca> catalago_pecas;
-    private List<PecaPedida> pedidos_de_peca;
+    private List<Peca> catalagoPecas;
+    private List<PecaPedida> pedidosDePeca;
     private List<PecaFornecida> fornecimentos;
 
     public Fornecedor(String nome, String email, long telefone, List<Peca> catalago_pecas, List<PecaPedida> pedidos_de_peca) {
         this.nome = nome;
         this.email = email;
         this.telefone = telefone;
-        this.catalago_pecas = catalago_pecas;
-        this.pedidos_de_peca = pedidos_de_peca;
+        this.catalagoPecas = catalago_pecas;
+        this.pedidosDePeca = pedidos_de_peca;
     }
-    
+
+    public Fornecedor(String nome, String email, long telefone) {
+        this.nome = nome;
+        this.email = email;
+        this.telefone = telefone;
+        catalagoPecas = new ArrayList<>();
+        pedidosDePeca = new ArrayList<>();
+        fornecimentos = new ArrayList<>();
+    }
 
     public String getNome() {
         return nome;
@@ -52,27 +61,27 @@ public class Fornecedor {
         this.telefone = telefone;
     }
 
-    public List<Peca> getCatalago_pecas() {
-        return catalago_pecas;
-    }
-
-    public void setCatalago_pecas(List<Peca> catalago_pecas) {
-        this.catalago_pecas = catalago_pecas;
-    }
-
-    public List<PecaPedida> getPedidos_de_peca() {
-        return pedidos_de_peca;
-    }
-
-    public void setPedidos_de_peca(List<PecaPedida> pedidos_de_peca) {
-        this.pedidos_de_peca = pedidos_de_peca;
-    }
-
     public List<PecaFornecida> getFornecimentos() {
         return fornecimentos;
     }
 
     public void setFornecimentos(List<PecaFornecida> fornecimentos) {
         this.fornecimentos = fornecimentos;
+    }
+
+    public List<Peca> getCatalagoPecas() {
+        return catalagoPecas;
+    }
+
+    public void setCatalagoPecas(List<Peca> catalagoPecas) {
+        this.catalagoPecas = catalagoPecas;
+    }
+
+    public List<PecaPedida> getPedidosDePeca() {
+        return pedidosDePeca;
+    }
+
+    public void setPedidosDePeca(List<PecaPedida> pedidosDePeca) {
+        this.pedidosDePeca = pedidosDePeca;
     }
 }

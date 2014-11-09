@@ -7,6 +7,7 @@
 package comando;
 
 import interfacegrafica.BuscaPeca;
+import interfacegrafica.Receiver;
 
 /**
  *
@@ -18,6 +19,10 @@ public class ComandoBuscaPeca implements Comando {
     
     public ComandoBuscaPeca () {
         bp = new BuscaPeca();
+    }
+    
+    public ComandoBuscaPeca (Receiver r) {
+        bp = new BuscaPeca(r);
     }
 
     @Override

@@ -5,25 +5,24 @@
  */
 package comando;
 
-import interfacegrafica.BuscaCliente;
+import interfacegrafica.CompraPeca;
 import interfacegrafica.Receiver;
 
 /**
  *
- * @author lorena
+ * @author danieljunior
  */
-public class ComandoBuscaCliente implements Comando{
+public class ComandoCompraPeca implements Comando {
 
-    private BuscaCliente b;
-    public ComandoBuscaCliente(Receiver r) {
-        b = new BuscaCliente(r);
+    private CompraPeca c;
+
+    public ComandoCompraPeca(Receiver r) {
+        c = new CompraPeca(r);
     }
-    
-    
 
     @Override
     public void executar() {
-        b.setVisible(true);
+        c.setVisible(true);
     }
-    
+
 }

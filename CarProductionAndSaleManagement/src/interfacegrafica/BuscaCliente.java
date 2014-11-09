@@ -18,7 +18,15 @@ public class BuscaCliente extends javax.swing.JFrame {
     /**
      * Creates new form BuscaCliente
      */
+    Receiver r;
+
     public BuscaCliente() {
+        initComponents();
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+    }
+
+    public BuscaCliente(Receiver r) {
+        this.r = r;
         initComponents();
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }
@@ -101,8 +109,10 @@ public class BuscaCliente extends javax.swing.JFrame {
         try {
             long id = Long.parseLong(jTextField1.getText());
             Fachada f = Sistema.getInstance();
-            MostraCliente m = new MostraCliente(f.buscarCliente(id));
-            m.setVisible(true);
+//            MostraCliente m = new MostraCliente(f.buscarCliente(id));
+//            m.setVisible(true);
+            r.receberCliente(f.buscarCliente(id));
+            dispose();
         } catch (Exception e) {
             jTextField1.setText("");
             JOptionPane.showMessageDialog(null, "Identificação precisa ser um número!");
