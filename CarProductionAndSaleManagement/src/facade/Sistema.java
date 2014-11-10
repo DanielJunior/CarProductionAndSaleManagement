@@ -78,8 +78,13 @@ public class Sistema implements Fachada {
     }
 
     @Override
-    public void verificarEstoque() {
-        fabrica.verificarEstoque();
+    public boolean verificarEstoque(Peca p) {
+        return fabrica.verificarEstoque(p);
+    }
+    
+    @Override
+    public boolean verificarEstoque(Opcional o) {
+        return fabrica.verificarEstoque(o);
     }
 
     @Override
