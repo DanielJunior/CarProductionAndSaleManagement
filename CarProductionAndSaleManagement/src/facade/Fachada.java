@@ -38,7 +38,8 @@ public interface Fachada {
     public Modelo buscarModelo(String nome);
     public List<Pedido> gerarRelatorio();
     public boolean alterarCliente(Cliente c);
-    public void verificarEstoque();
+    public boolean verificarEstoque(Peca p);
+    public boolean verificarEstoque(Opcional o);
 
     public boolean autenticar(String text, char[] password);
 }
