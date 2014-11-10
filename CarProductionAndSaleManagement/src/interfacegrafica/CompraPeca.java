@@ -43,6 +43,7 @@ public class CompraPeca extends javax.swing.JFrame {
         jList1.setModel(new DefaultListModel());
         jList1.setListData(a.toArray());
         jList1.setVisibleRowCount(10);
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }
 
     /**

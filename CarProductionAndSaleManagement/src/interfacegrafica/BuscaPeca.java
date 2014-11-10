@@ -27,6 +27,7 @@ public class BuscaPeca extends javax.swing.JFrame {
     public BuscaPeca(Receiver r) {
         initComponents();
         this.r = r;
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }
 
     /**
