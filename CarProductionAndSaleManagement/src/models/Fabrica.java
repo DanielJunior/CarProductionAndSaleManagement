@@ -208,8 +208,20 @@ public class Fabrica {
         return false;
     }
     
-    public void verificarEstoque() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean verificarEstoque(Peca p) {
+        PecaEstoque aux = estoque.buscaPeca(p.getId());
+        return aux != null;
+    }
+    
+    public boolean verificarEstoque(Opcional o){
+        List<PecaOpcional> p;
+        p = o.getPecas();
+        for(PecaOpcional po : p){
+            if(verificarEstoque(po.getPecas()) == false){
+                return false;
+            }
+        }
+        return true;
     }
     
     public boolean autenticar(String nome, String senha) {
